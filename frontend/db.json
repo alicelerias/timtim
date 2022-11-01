@@ -1,0 +1,200 @@
+{
+  "epics": [
+    {
+      "display": "Epic 1",
+      "name": "epic-1",
+      "color": "roxo"
+    },
+    {
+      "display": "Epic 2",
+      "name": "epic-2",
+      "color": "verde"
+    },
+    {
+      "display": "Epic 3",
+      "name": "epic-3",
+      "color": "verde claro"
+    }
+  ],
+  "users": [
+    {
+      "name": "david",
+      "profile_picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaoezLCznjpT7cCE67u3KKr4Kr494LsJeR2w&usqp=CAU",
+      "id": 1
+    },
+    {
+      "name": "maxwel",
+      "profile_picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvYk0ggVMEnpFji7w1t1PatNmFjATfneMMfg&usqp=CAU",
+      "id": 2
+    },
+    {
+      "name": "timtim",
+      "profile_picture": "https://upload.wikimedia.org/wikipedia/commons/5/5c/For_profile.jpg",
+      "id": 3
+    }
+  ],
+  "tasks": [
+    {
+      "titulo": "Testando backend",
+      "descricao": "testando",
+      "epic": {
+        "name": "epic-1",
+        "color": "roxo"
+      },
+      "user": {
+        "name": "timtim",
+        "id": 3,
+        "profile_picture": "https://upload.wikimedia.org/wikipedia/commons/5/5c/For_profile.jpg"
+      },
+      "prioridade": "medium",
+      "pontos": "19",
+      "status": "backlog",
+      "id": 1
+    },
+    {
+      "titulo": "Testando backend 2",
+      "descricao": "testando",
+      "epic": {
+        "name": "epic-1",
+        "color": "roxo"
+      },
+      "user": {
+        "name": "david",
+        "id": 1,
+        "profile_picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaoezLCznjpT7cCE67u3KKr4Kr494LsJeR2w&usqp=CAU"
+      },
+      "prioridade": "medium",
+      "pontos": "19",
+      "status": "done",
+      "id": 2
+    },
+    {
+      "status": "done",
+      "prioridade": "medium",
+      "pontos": "8",
+      "descricao": "test",
+      "titulo": "test test",
+      "epic": {
+        "name": "epic-1",
+        "color": "roxo"
+      },
+      "user": {
+        "name": "maxwel",
+        "id": 2,
+        "profile_picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvYk0ggVMEnpFji7w1t1PatNmFjATfneMMfg&usqp=CAU"
+      },
+      "id": 4
+    },
+    {
+      "titulo": "oi",
+      "descricao": "oi",
+      "prioridade": "hight",
+      "pontos": "77",
+      "status": "backlog",
+      "epic": {
+        "name": "epic-1",
+        "color": "roxo"
+      },
+      "user": {
+        "name": "david",
+        "id": 1,
+        "profile_picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaoezLCznjpT7cCE67u3KKr4Kr494LsJeR2w&usqp=CAU"
+      },
+      "id": 5
+    },
+    {
+      "titulo": "oi 2",
+      "prioridade": "hight",
+      "pontos": "77",
+      "descricao": "gggg",
+      "status": "backlog",
+      "epic": {
+        "name": "epic-1",
+        "color": "roxo"
+      },
+      "user": {
+        "name": "david",
+        "id": 1,
+        "profile_picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaoezLCznjpT7cCE67u3KKr4Kr494LsJeR2w&usqp=CAU"
+      },
+      "id": 6
+    },
+    {
+      "titulo": "oiii",
+      "prioridade": "hight",
+      "pontos": "80",
+      "status": "in_progress",
+      "epic": {
+        "name": "epic-3",
+        "color": "verde claro"
+      },
+      "user": {
+        "name": "david",
+        "id": 1,
+        "profile_picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaoezLCznjpT7cCE67u3KKr4Kr494LsJeR2w&usqp=CAU"
+      },
+      "descricao": "test",
+      "id": 7
+    },
+    {
+      "titulo": "test dia 16",
+      "prioridade": "hight",
+      "pontos": "8",
+      "status": "in_progress",
+      "epic": {
+        "name": "epic-2",
+        "color": "verde"
+      },
+      "user": {
+        "name": "timtim",
+        "id": 3,
+        "profile_picture": "https://upload.wikimedia.org/wikipedia/commons/5/5c/For_profile.jpg"
+      },
+      "descricao": "test",
+      "id": 8
+    },
+    {
+      "titulo": "Timtim",
+      "prioridade": "medium",
+      "pontos": "19",
+      "status": "in_progress",
+      "descricao": "09999",
+      "epic": {
+        "name": "epic-3",
+        "color": "verde claro"
+      },
+      "id": 9
+    },
+    {
+      "titulo": "test",
+      "status": "backlog",
+      "epic": {
+        "name": "epic-1",
+        "color": "roxo"
+      },
+      "user": {
+        "name": "maxwel",
+        "id": 2,
+        "profile_picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvYk0ggVMEnpFji7w1t1PatNmFjATfneMMfg&usqp=CAU"
+      },
+      "id": 10
+    },
+    {
+      "titulo": "uuuuui",
+      "status": "in_progress",
+      "epic": {
+        "name": "epic-2",
+        "color": "verde"
+      },
+      "user": {
+        "name": "maxwel",
+        "id": 2,
+        "profile_picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvYk0ggVMEnpFji7w1t1PatNmFjATfneMMfg&usqp=CAU"
+      },
+      "prioridade": "hight",
+      "descricao": "text",
+      "pontos": "99",
+      "id": 11
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "eslint.nodePath": "/home/yuri/.nvm/versions/node/v14.18.1/",
+  "eslint.format.enable": false,
+  "editor.formatOnSave": true
+}

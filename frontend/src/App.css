@@ -1,0 +1,26 @@
+
+* {
+  text-decoration: none;
+  background-color: #D7C8E7;
+  font-family: 'Times New Roman', Times, serif;
+  
+}
+
+*::selection {
+  background-color: #576794;
+  color: #fff;
+}
+.header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container {
+  margin: auto;
+}
+
+.color1 {color: #06060f;}
+.color2 {color: #213147;}
+.color3 {color: #576794;}
+.color4 {color: #9ca0df;}
+.color5 {color: #dfd4ea;}
