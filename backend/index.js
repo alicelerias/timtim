@@ -63,8 +63,12 @@ app.get(
 app.post(
   "/tasks",
   errorHandler(async function (req, res) {
-    if (!(await TASK_SCHEMA.isValid(req.body))) {
-      res.status(ex.status).json(ex.json);
+    const schema = TASK_SCHEMA;
+    let task;
+    try {
+      task = await schema.validate(req.body);
+    } catch (ex) {
+      res.status(400).json(ex);
       return;
     }
 
