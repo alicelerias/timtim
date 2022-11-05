@@ -1,12 +1,5 @@
 const knex = require("./connection");
 
-// knex.schema.dropTable('tasks_table')
-//   .then(()=> console.log('success'));
-
-// knex.schema.dropTable('epics')
-//   .then(()=> console.log('success'));
-// knex.schema.dropTable('tasks_table')
-//   .then(()=> console.log('success'));
 knex.schema
   .createTable("tasks_table", function (table) {
     table.increments("id");

@@ -6,7 +6,7 @@ const epics = require("./model/epics");
 const users = require("./model/users");
 const tasks = require("./model/tasks");
 const cors = require("cors");
-const { MY_SCHEMA } = require("./constants");
+const { TASK_SCHEMA } = require("./schemas");
 
 console.log(`Starting server on ${config.APP_ENVIRONMENT} environment...`);
 
@@ -55,7 +55,6 @@ app.get(
 app.get(
   "/tasks",
   errorHandler(async function (req, res) {
-    console.log(req.query);
     const tasksList = await tasks.list(req.query);
     res.status(200).json(tasksList);
   })
@@ -64,9 +63,7 @@ app.get(
 app.post(
   "/tasks",
   errorHandler(async function (req, res) {
-    const schema = MY_SCHEMA;
-
-    if (!(await schema.isValid(req.body))) {
+    if (!(await TASK_SCHEMA.isValid(req.body))) {
       res.status(ex.status).json(ex.json);
       return;
     }
@@ -83,12 +80,16 @@ app.patch(
   "/tasks/:id",
   errorHandler(async function (req, res) {
     const id = req.params.id;
-    const schema = MY_SCHEMA;
-    if (!(await schema.isValid(req.body))) {
-      res.status(ex.status).json(ex.json);
+    const schema = TASK_SCHEMA;
+    let task;
+    try {
+      task = await schema.validate(req.body);
+    } catch (ex) {
+      res.status(400).json(ex);
       return;
     }
-    await tasks.update(id, req.body);
+
+    await tasks.update(id, task);
     res.status(200).json({
       status: "Objeto alterado com sucesso!"
     });

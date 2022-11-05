@@ -208,7 +208,6 @@ function Modal({
   }
 
   function handleChangeEpic(epic) {
-    console.log('selected epic', epic)
     const newTask = {
       epic_name: epic.name,
       epic: { name: epic.name, color: epic.color },

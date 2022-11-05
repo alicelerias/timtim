@@ -1,6 +1,6 @@
 const yup = require("yup");
 
-const MY_SCHEMA = yup.object().shape({
+const TASK_SCHEMA = yup.object().required().noUnknown().shape({
   titulo: yup.string(),
   descricao: yup.string(),
   prioridade: yup.string(),
@@ -11,5 +11,5 @@ const MY_SCHEMA = yup.object().shape({
 });
 
 module.exports = {
-  MY_SCHEMA
+  TASK_SCHEMA
 };
