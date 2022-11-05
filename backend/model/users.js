@@ -1,9 +1,9 @@
-const knex = require('../connection')
+const knex = require("../connection");
 
 const list = () => {
-  return knex('users')
-}
+  return knex("users");
+};
 
 module.exports = {
-  list,
-}
+  list
+};

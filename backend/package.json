@@ -9,7 +9,8 @@
     "seed:run": "knex seed:run",
     "seed:make": "knex seed:make $1",
     "migrate:run": "knex migrate:up",
-    "migrate:make": "knex migrate:make $1"
+    "migrate:make": "knex migrate:make $1",
+    "format": "prettier --write ."
   },
   "author": "",
   "license": "ISC",
