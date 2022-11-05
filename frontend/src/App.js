@@ -49,28 +49,28 @@ const App = () => {
     <>
       <GlobalStyle />
       <div className={cssBody}>
-      <div className={cssContainer}>
-        <Modal
-          showModal={showModal}
-          onClose={closeModal}
-          taskId={taskId}
-          refreshTasks={refreshTasks}
-          showModalCadastro={showModalCadastro}
-        />
-
-        <Header openModal={openModalCadastro} />
-        <FiltersContext.Provider value={{ filters, setFilters }}>
-          <Filters />
-        </FiltersContext.Provider>
-        <TasksContext.Provider value={tasks}>
-          <Main
+        <div className={cssContainer}>
+          <Modal
             showModal={showModal}
-            openModal={openModal}
+            onClose={closeModal}
             taskId={taskId}
-            setTaskId={setTaskId}
+            refreshTasks={refreshTasks}
+            showModalCadastro={showModalCadastro}
           />
-        </TasksContext.Provider>
-      </div>
+
+          <Header openModal={openModalCadastro} />
+          <FiltersContext.Provider value={{ filters, setFilters }}>
+            <Filters />
+          </FiltersContext.Provider>
+          <TasksContext.Provider value={tasks}>
+            <Main
+              showModal={showModal}
+              openModal={openModal}
+              taskId={taskId}
+              setTaskId={setTaskId}
+            />
+          </TasksContext.Provider>
+        </div>
       </div>
     </>
   )
