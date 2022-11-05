@@ -6,10 +6,10 @@ export const useTasks = (filter={}) => {
   const refresh = useCallback(() => {
     const url = new URL('http://localhost:5000/tasks')
     if (filter.epic) {
-      url.searchParams.append('epic.name', filter.epic)
+      url.searchParams.append('epic_name', filter.epic)
     }
     if (filter.user) {
-      url.searchParams.append('user.name', filter.user)
+      url.searchParams.append('user_id', filter.user)
     }
     fetch(url, {  
       method: "GET",

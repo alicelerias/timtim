@@ -29,7 +29,7 @@ const cssImg = css`
 `
 
 const User = ({ selected, onSelect, user }) => {
-  const isSelected = selected === user.name
+  const isSelected = selected === user.id
   // const context = useCon
 
   return (
@@ -37,7 +37,7 @@ const User = ({ selected, onSelect, user }) => {
       className={isSelected ? cssImgUserSelected : cssImgUser}
       name={user.name}
       id={user.id}
-      onClick={() => onSelect(selected !== user.name && user.name)}
+      onClick={() => onSelect(selected !== user.id && user.id)}
     >
       <img className={cssImg} alt="x" src={user.profile_picture} />
     </div>

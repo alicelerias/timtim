@@ -1,3 +1,0 @@
-
-def foo(arg1, arg2, option_a=False, option_name="DEFAULT"):
-  pass

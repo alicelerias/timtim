@@ -210,6 +210,7 @@ function Modal({
   function handleChangeEpic(epic) {
     console.log('selected epic', epic)
     const newTask = {
+      epic_name: epic.name,
       epic: { name: epic.name, color: epic.color },
     }
 
@@ -218,6 +219,7 @@ function Modal({
 
   function handleChangeUser(user) {
     const newTask = {
+      user_id: user.id,
       user: {
         name: user.name,
         id: user.id,
@@ -436,7 +438,7 @@ function Modal({
             <div className={cssBoxEpic}>
               <Select
                 items={myEpics}
-                value={task.epic.name}
+                value={task.epic_name}
                 onSelect={handleChangeEpic}
                 SelectedRender={({ onClick, item }) => (
                   <EpicRender onMouseDown={onClick} item={item} />

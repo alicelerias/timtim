@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js",
+    "seed:run": "knex seed:run",
+    "seed:make": "knex seed:make $1",
+    "migrate:run": "knex migrate:up",
+    "migrate:make": "knex migrate:make $1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "knex": "^2.3.0",
+    "pg": "^8.8.0",
+    "sqlite3": "^5.1.2",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "nodemon": "^2.0.20"
+  }
+}
