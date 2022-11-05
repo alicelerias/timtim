@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
+import { API_HOST } from '../config'
 
 export const useEpics = () => {
   const [epics, setEpics] = useState([])
   useEffect(() => {
-    fetch('http://localhost:5000/epics', {
+    fetch(`${API_HOST}/epics`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

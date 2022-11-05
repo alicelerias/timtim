@@ -21,6 +21,7 @@ import {
   SPACING_3,
   SPACING_4,
 } from '../style'
+import { API_HOST } from '../config'
 
 const cssHeader = css`
   background-color: ${color2};
@@ -243,7 +244,7 @@ function Modal({
   }
 
   const newTicket = () => {
-    fetch(`http://localhost:5000/tasks`, {
+    fetch(`${API_HOST}/tasks`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -257,7 +258,7 @@ function Modal({
       })
   }
   const saveEdit = () => {
-    fetch(`http://localhost:5000/tasks/${taskId}`, {
+    fetch(`${API_HOST}/tasks/${taskId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -270,7 +271,7 @@ function Modal({
   }
   useEffect(() => {
     if (!taskId) return
-    fetch(`http://localhost:5000/tasks/${taskId}`, {
+    fetch(`${API_HOST}/tasks/${taskId}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -284,7 +285,7 @@ function Modal({
   }, [taskId])
 
   const deleteTicket = () => {
-    fetch(`http://localhost:5000/tasks/${taskId}`, {
+    fetch(`${API_HOST}/tasks/${taskId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
