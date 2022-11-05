@@ -2,6 +2,8 @@
 
 # IDE
 .vscode
+.vscode/settings.json
+.vscode/testecontroleversao.jsx
 
 # dependencies
 /node_modules
@@ -25,3 +27,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#prettierrc
+
+.prettierrc.json
