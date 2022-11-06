@@ -17,7 +17,7 @@ const cssContainer = css`
 `
 
 const Main = ({ openModal, taskId, setTaskId }) => {
-  const tasks = useContext(TasksContext)
+  const { tasks } = useContext(TasksContext)
   return (
     <div className={cssContainer}>
       {PANELS.map(({ display, value: filterValue }) => (
