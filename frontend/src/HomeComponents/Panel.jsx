@@ -1,9 +1,12 @@
+import { useContext } from 'react'
 import { css } from '@emotion/css'
 
 import { BACKGROUND_COLOR, color2, rem, SPACING_1, SPACING_2 } from '../style'
 import TaskCard from './TaskCard'
+import TasksContext from '../context/tasks'
+import { blinker } from '../animation'
 
-export const cssCard = css`
+const cssCard = css`
   display: flex;
   flex-direction: column;
   gap: ${SPACING_2};
@@ -14,7 +17,13 @@ export const cssCard = css`
   box-shadow: 0.1rem 0.2rem 0.2rem 0.2rem gray;
 `
 
-export const cssH1 = css`
+const cssCardBlink = css`
+  ${cssCard}
+  filter: brightness(0.9);
+  animation: ${blinker} 4s linear infinite;
+`
+
+const cssH1 = css`
   background-color: ${color2};
   margin: 0rem;
   padding: ${SPACING_1};
@@ -31,8 +40,9 @@ const cssBoxTasks = css`
 `
 
 export const Panel = ({ title, openModal, tasks, taskId, setTaskId }) => {
+  const { loading } = useContext(TasksContext)
   return (
-    <div className={cssCard}>
+    <div className={loading ? cssCardBlink : cssCard}>
       <div className={cssH1}>{title}</div>
       <div className={cssBoxTasks}>
         {tasks.map((task) => (

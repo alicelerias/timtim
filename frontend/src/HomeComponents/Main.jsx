@@ -5,7 +5,6 @@ import { PANELS } from '../constants'
 import Panel from './Panel'
 import TasksContext from '../context/tasks'
 import { BACKGROUND_COLOR, SPACING_3, SPACING_4 } from '../style'
-import TasksSkeleton from '../skeleton/Skeleton'
 
 const cssContainer = css`
   background-color: ${BACKGROUND_COLOR};
@@ -18,23 +17,19 @@ const cssContainer = css`
 `
 
 const Main = ({ openModal, taskId, setTaskId }) => {
-  const { tasks, loading } = useContext(TasksContext)
+  const { tasks } = useContext(TasksContext)
   return (
     <div className={cssContainer}>
-      {loading ? (
-        <TasksSkeleton />
-      ) : (
-        PANELS.map(({ display, value: filterValue }) => (
-          <Panel
-            key={filterValue}
-            title={display}
-            tasks={tasks.filter((task) => task.status === filterValue)}
-            openModal={openModal}
-            taskId={taskId}
-            setTaskId={setTaskId}
-          />
-        ))
-      )}
+      {PANELS.map(({ display, value: filterValue }) => (
+        <Panel
+          key={filterValue}
+          title={display}
+          tasks={tasks.filter((task) => task.status === filterValue)}
+          openModal={openModal}
+          taskId={taskId}
+          setTaskId={setTaskId}
+        />
+      ))}
     </div>
   )
 }
