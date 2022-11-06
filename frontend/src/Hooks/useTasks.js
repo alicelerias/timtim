@@ -3,7 +3,8 @@ import { API_HOST } from '../config'
 
 export const useTasks = (filter = {}) => {
   const [tasks, setTasks] = useState([])
-
+  const [loading, setLoading] = useState(true)
+  console.log('debug,', loading)
   const refresh = useCallback(() => {
     const url = new URL(`${API_HOST}/tasks`)
     if (filter.epic) {
@@ -12,6 +13,8 @@ export const useTasks = (filter = {}) => {
     if (filter.user) {
       url.searchParams.append('user_id', filter.user)
     }
+
+    setLoading(true)
     fetch(url, {
       method: 'GET',
       headers: {
@@ -21,8 +24,9 @@ export const useTasks = (filter = {}) => {
       .then((resp) => resp.json())
       .then(setTasks)
       .catch((err) => console.log(err))
-  }, [filter.epic, filter.user])
+      .finally(() => setLoading(false))
+  }, [filter.epic, filter.user, setLoading, setTasks])
 
   useEffect(refresh, [refresh])
-  return [tasks, refresh]
+  return [tasks, refresh, loading]
 }

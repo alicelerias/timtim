@@ -25,7 +25,7 @@ const App = () => {
 
   // const [state, dispatcher] = useReducer(appReducer, initialState)
   const [filters, setFilters] = useReducer(filterReducer, defaultFilter)
-  const [tasks, refreshTasks] = useTasks(filters)
+  const [tasks, refreshTasks, loading] = useTasks(filters)
 
   const [showModal, setShowModal] = useState(false)
   const [showModalCadastro, setShowModalCadastro] = useState(false)
@@ -59,10 +59,12 @@ const App = () => {
           />
 
           <Header openModal={openModalCadastro} />
+
           <FiltersContext.Provider value={{ filters, setFilters }}>
             <Filters />
           </FiltersContext.Provider>
-          <TasksContext.Provider value={tasks}>
+
+          <TasksContext.Provider value={{ tasks, loading }}>
             <Main
               showModal={showModal}
               openModal={openModal}

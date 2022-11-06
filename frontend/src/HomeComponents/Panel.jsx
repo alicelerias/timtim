@@ -3,7 +3,7 @@ import { css } from '@emotion/css'
 import { BACKGROUND_COLOR, color2, rem, SPACING_1, SPACING_2 } from '../style'
 import TaskCard from './TaskCard'
 
-const cssCard = css`
+export const cssCard = css`
   display: flex;
   flex-direction: column;
   gap: ${SPACING_2};
@@ -14,7 +14,7 @@ const cssCard = css`
   box-shadow: 0.1rem 0.2rem 0.2rem 0.2rem gray;
 `
 
-const cssH1 = css`
+export const cssH1 = css`
   background-color: ${color2};
   margin: 0rem;
   padding: ${SPACING_1};
