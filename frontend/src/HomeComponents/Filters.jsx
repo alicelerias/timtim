@@ -40,7 +40,7 @@ const UserFilter = () => {
 
   return (
     <>
-      <div className={cssUsers}>
+      <div data-testid={'user-filter-render-id'} className={cssUsers}>
         {users.map((user) => (
           <User
             key={user.name}
@@ -70,7 +70,7 @@ const EpicFilter = () => {
   // context.setFilters
 
   return (
-    <div className={cssEpics}>
+    <div data-testid={'epic-filter-render-id'} className={cssEpics}>
       {epics.map((epic) => (
         <Epic
           key={epic.name}

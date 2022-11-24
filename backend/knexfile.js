@@ -5,14 +5,9 @@ const config = require("./config");
  */
 module.exports = {
   development: {
-    client: "postgresql",
-    connection: config.DB_CONNECTION,
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: "knex_migrations"
+    client: "sqlite3",
+    connection: {
+      filename: "./db.sqlite"
     }
   },
 

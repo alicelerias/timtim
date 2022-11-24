@@ -27,7 +27,7 @@ const cssLogo = css`
 
 function Header({ openModal }) {
   return (
-    <div className={cssHeader}>
+    <div data-testid={'header-test-render'} className={cssHeader}>
       <div className={cssLogo}>
         <Logo />
       </div>

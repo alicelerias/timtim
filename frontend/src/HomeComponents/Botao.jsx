@@ -28,7 +28,11 @@ function Botao({ botao, openModal }) {
 
   // }
   return (
-    <button className={cssBotao} onClick={() => openModal()}>
+    <button
+      data-testid={'botao-test-render'}
+      className={cssBotao}
+      onClick={() => openModal()}
+    >
       {botao}
     </button>
   )

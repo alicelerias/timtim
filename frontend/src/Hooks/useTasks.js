@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useState } from 'react'
 import { API_HOST } from '../config'
+import { get } from '../server/task'
 
 export const useTasks = (filter = {}) => {
   const [tasks, setTasks] = useState([])
   const [loading, setLoading] = useState(true)
   console.log('debug,', loading)
+  const url = new URL(`http://localhost:3000/tasks`)
   const refresh = useCallback(() => {
-    const url = new URL(`${API_HOST}/tasks`)
     if (filter.epic) {
       url.searchParams.append('epic_name', filter.epic)
     }
@@ -15,13 +16,7 @@ export const useTasks = (filter = {}) => {
     }
 
     setLoading(true)
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((resp) => resp.json())
+    get()
       .then(setTasks)
       .catch((err) => console.log(err))
       .finally(() => setLoading(false))

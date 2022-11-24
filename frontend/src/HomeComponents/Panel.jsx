@@ -42,7 +42,10 @@ const cssBoxTasks = css`
 export const Panel = ({ title, openModal, tasks, taskId, setTaskId }) => {
   const { loading } = useContext(TasksContext)
   return (
-    <div className={loading ? cssCardBlink : cssCard}>
+    <div
+      data-testid={'panel-test-id'}
+      className={loading ? cssCardBlink : cssCard}
+    >
       <div className={cssH1}>{title}</div>
       <div className={cssBoxTasks}>
         {tasks.map((task) => (
