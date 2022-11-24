@@ -95,6 +95,7 @@ function Epic({ name, color, selected, onSelect, epic }) {
   if (epic.name === selected)
     return (
       <div
+        data-testid={'epic-render-id'}
         className={cssMapSelected[color]}
         onClick={() => onSelect(selected !== epic.name && epic.name)}
       >
@@ -104,6 +105,7 @@ function Epic({ name, color, selected, onSelect, epic }) {
   else
     return (
       <div
+        data-testid={'epic-render-id'}
         className={cssMap[color]}
         onClick={() => onSelect(selected !== epic.name && epic.name)}
       >

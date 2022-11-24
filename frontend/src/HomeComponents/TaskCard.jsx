@@ -40,7 +40,11 @@ const Task = ({
     background-color: ${COLOR_MAP[color]};
   `
   return (
-    <div className={cssTaskColor} onClick={() => openModal(id)}>
+    <div
+      className={cssTaskColor}
+      onClick={() => openModal(id)}
+      data-testid={'task-card-render'}
+    >
       {titulo}
       <div className={cssOutros}>
         {' '}

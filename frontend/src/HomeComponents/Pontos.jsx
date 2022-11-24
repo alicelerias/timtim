@@ -16,7 +16,11 @@ const cssPontos = css`
 `
 
 function Pontos({ pontos }) {
-  return <div className={cssPontos}>{pontos}</div>
+  return (
+    <div className={cssPontos} data-testid={'pontos-test-id'}>
+      {pontos}
+    </div>
+  )
 }
 
 export default Pontos

@@ -82,6 +82,7 @@ export const ItemRender = ({ selected, item, onMouseDown }) => {
     <div
       className={selected ? cssSelected : cssSelectedOther}
       onMouseDown={onMouseDown}
+      data-testid={`select-item-render-${item.id}`}
     >
       {item.display}
     </div>
@@ -170,7 +171,7 @@ const Select = ({
           />
         )}
         {focus && (
-          <div className={cssFocus}>
+          <div dclassName={cssFocus}>
             <SelectItems
               items={searcher ? searcher.search(searchTerm) : items}
               EmptyRender={EmptyRender}

@@ -21,7 +21,7 @@ import {
   SPACING_3,
   SPACING_4,
 } from '../style'
-import { API_HOST } from '../config'
+import { create, deleteById, getById, update } from '../server/task'
 
 const cssHeader = css`
   background-color: ${color2};
@@ -244,40 +244,20 @@ function Modal({
   }
 
   const newTicket = () => {
-    fetch(`${API_HOST}/tasks`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(task),
+    create(task).then(() => {
+      cleanTask()
+      refreshTasks()
     })
-      .then((resp) => resp.json())
-      .then((data) => {
-        cleanTask()
-        refreshTasks()
-      })
   }
   const saveEdit = () => {
-    fetch(`${API_HOST}/tasks/${taskId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(task),
-    }).then(() => {
+    update(taskId, task).then(() => {
       cleanTask()
       refreshTasks()
     })
   }
   useEffect(() => {
     if (!taskId) return
-    fetch(`${API_HOST}/tasks/${taskId}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((resp) => resp.json())
+    getById(taskId)
       .then((data) => {
         setTask(data)
       })
@@ -285,13 +265,7 @@ function Modal({
   }, [taskId])
 
   const deleteTicket = () => {
-    fetch(`${API_HOST}/tasks/${taskId}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(task),
-    }).then(() => {
+    deleteById(taskId, task).then(() => {
       cleanTask()
       refreshTasks()
     })
@@ -329,14 +303,22 @@ function Modal({
 
   if (showModalCadastro)
     return (
-      <div className={cssModal}>
+      <div data-testid={'modal-cadastro-test-id'} className={cssModal}>
         <div className={cssContainer}>
           <div className={cssHeader}>
             <div className={cssH1}>New Ticket</div>{' '}
-            <button className={cssBtn} onClick={newTicket}>
+            <button
+              data-testid={'modal-cadastro-newticket-test-id'}
+              className={cssBtn}
+              onClick={newTicket}
+            >
               <BiSave />
             </button>
-            <button className={cssBtn} onClick={cleanTask}>
+            <button
+              data-testid={'modal-cadastro-cleantask-test-id'}
+              className={cssBtn}
+              onClick={cleanTask}
+            >
               <TiDelete />
             </button>
           </div>
@@ -344,11 +326,13 @@ function Modal({
           <div className={cssBody}>
             <div className={cssDescricoes}>
               <textarea
+                data-testid={'modal-cadastro-textarea-titulo-test-id'}
                 className={cssPrimeiraDescricao}
                 placeholder="Insira o título"
                 onChange={handleChangeTitulo}
               ></textarea>
               <textarea
+                data-testid={'modal-cadastro-textarea-descricao-test-id'}
                 className={cssSegundaDescricao}
                 onChange={handleChangeDescricao}
                 placeholder="Insira a descricão"
@@ -393,35 +377,48 @@ function Modal({
         </div>
       </div>
     )
-
   if (!showModal || !task) return
 
   return (
-    <div className={cssModal}>
+    <div data-testid={'modal-task-test-id'} className={cssModal}>
       <div className={cssContainer}>
         <div className={cssHeader}>
           <div className={cssH1}>Editar tarefa</div>
 
-          <button className={cssBtn} onClick={deleteTicket}>
+          <button
+            data-testid={'modal-task-delete-test-id'}
+            className={cssBtn}
+            onClick={deleteTicket}
+          >
             <AiOutlineDelete />
           </button>
 
-          <button className={cssBtn} onClick={saveEdit}>
+          <button
+            data-testid={'modal-task-update-test-id'}
+            className={cssBtn}
+            onClick={saveEdit}
+          >
             <BiSave />
           </button>
 
-          <button className={cssBtn} onClick={cleanTask}>
+          <button
+            data-testid={'modal-task-close-test-id'}
+            className={cssBtn}
+            onClick={cleanTask}
+          >
             <TiDelete />
           </button>
         </div>
         <div className={cssBody}>
           <div className={cssDescricoes}>
             <textarea
+              data-testid={'modal-task-titulo-test-id'}
               className={cssPrimeiraDescricao}
               onChange={handleChangeTitulo}
               value={task.titulo}
             ></textarea>
             <textarea
+              data-testid={'modal-task-descricao-test-id'}
               className={cssSegundaDescricao}
               onChange={handleChangeDescricao}
               value={task.descricao}

@@ -28,7 +28,12 @@ function Prioridade({ prioridade }) {
     ${cssPriority};
     color: ${map_prioridade[prioridade]};
   `
-  if (prioridade) return <div className={cssPrioridadeColor}>{prioridade}</div>
+  if (prioridade)
+    return (
+      <div data-testid={'prioridade-test-id'} className={cssPrioridadeColor}>
+        {prioridade}
+      </div>
+    )
 }
 
 export default Prioridade
