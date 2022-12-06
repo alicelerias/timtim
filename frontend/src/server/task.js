@@ -20,8 +20,16 @@ export const update = (taskId, task) => {
   })
 }
 
-export const get = () => {
+export const get = (filter = {}) => {
   const url = new URL(`${API_HOST}/tasks`)
+
+  if (filter.epic) {
+    url.searchParams.append('epic_name', filter.epic)
+  }
+  if (filter.user) {
+    url.searchParams.append('user_id', filter.user)
+  }
+
   return fetch(url, {
     method: 'GET',
     headers: {

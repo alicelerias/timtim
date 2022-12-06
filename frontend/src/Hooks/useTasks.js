@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
 import { API_HOST } from '../config'
-import { get } from '../server/task'
+import * as TaskServer from '../server/task'
 
 export const useTasks = (filter = {}) => {
   const [tasks, setTasks] = useState([])
   const [loading, setLoading] = useState(true)
-  console.log('debug,', loading)
+
   const refresh = useCallback(() => {
     setLoading(true)
-    get(filter)
+    TaskServer.get(filter)
       .then(setTasks)
       .catch((err) => console.log(err))
       .finally(() => setLoading(false))
